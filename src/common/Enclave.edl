@@ -1,0 +1,13 @@
+enclave {
+    from "sgx_tstdc.edl" import *;
+    from "sgx_tae_service.edl" import *;
+
+    trusted {
+        public int enclaveTest();
+    };
+
+    untrusted {
+        int ocall_print_to_std([in, string] const char *str);
+        int ocall_print_to_err([in, string] const char *str);
+    };
+};
